@@ -35,8 +35,11 @@
         <div class="zombie">🧟</div>
         <div class="runner">🏃</div>
       </div>
-      <button class="zombie-button" onclick="showZombie()">Summon the Horde</button>
-      <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde" style="display:none;">
+      <button class="zombie-button" onclick="toggleZombie()">Summon the Horde</button>
+      <div id="zombieWrapper">
+        <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde">
+        <div class="steam-overlay"></div>
+      </div>
     </section>
 
     <section id="features">
@@ -48,17 +51,6 @@
       </ul>
     </section>
 
-    <section id="gallery">
-      <div class="skulls">
-        <div class="skull">💀</div>
-        <div class="skull">💀</div>
-        <div class="skull">💀</div>
-      </div>
-      <img src="assets/skull.png" alt="Skull">
-      <img src="assets/fog.png" alt="Fog">
-      <img src="assets/zombie2.png" alt="Zombie Variant">
-    </section>
-
     <footer>
       <p>Made by ASXGTR 🧟‍♂️</p>
       <div class="sweets">
@@ -68,10 +60,24 @@
   </div>
 
   <script>
-    function showZombie() {
+    let hordeVisible = false;
+
+    function toggleZombie() {
+      const wrapper = document.getElementById("zombieWrapper");
       const img = document.getElementById("zombieImage");
-      img.style.display = "block";
-      img.classList.add("fade-in");
+      const overlay = document.querySelector(".steam-overlay");
+
+      if (!hordeVisible) {
+        img.classList.add("fade-in");
+        overlay.classList.add("steam-active");
+        wrapper.style.display = "block";
+        hordeVisible = true;
+      } else {
+        img.classList.remove("fade-in");
+        overlay.classList.remove("steam-active");
+        wrapper.style.display = "none";
+        hordeVisible = false;
+      }
     }
   </script>
 

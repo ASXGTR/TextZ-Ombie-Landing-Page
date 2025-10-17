@@ -20,15 +20,14 @@ header {
   top: 0;
   width: 100%;
   height: 160px;
-  background-color: #111;
-  background-image: url("assets/Logo006Expanded.png");
+  background-image: url("assets/Banner01.png");
   background-size: cover;
-  background-position: center;
+  background-position: left center;
   background-repeat: no-repeat;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 40px 20px 20px; /* nudged left */
   z-index: 10;
   box-sizing: border-box;
 }
@@ -78,15 +77,16 @@ section {
 }
 
 .hero-bg {
+  background-image: url("assets/Logo006Expanded.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("assets/zombie-horde.jpeg");
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  opacity: 0.3;
+  z-index: -2;
+  opacity: 0.4;
 }
 
 .fog {
@@ -96,8 +96,8 @@ section {
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.6) 100%);
-  animation: fogMove 10s linear infinite;
-  z-index: 1;
+  animation: fogMove 20s linear infinite;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -122,6 +122,32 @@ section {
 .bat:nth-child(2) { left: -100px; animation-delay: 2s; }
 .bat:nth-child(3) { left: -150px; animation-delay: 4s; }
 
+.chase {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  margin-top: 40px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.zombie, .runner {
+  position: absolute;
+  top: 0;
+  font-size: 32px;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+.zombie {
+  left: -50px;
+  animation-name: chaseZombie;
+}
+
+.runner {
+  left: 100%;
+  animation-name: fleeRunner;
+}
 .zombie-button {
   background-color: #4b5320;
   color: #fff;
@@ -162,57 +188,42 @@ section {
   animation: floatPumpkin 2s infinite ease-in-out;
 }
 
-.chase {
+/* Zombie image wrapper */
+#zombieWrapper {
   position: relative;
-  width: 100%;
-  height: 60px;
-  margin-top: 40px;
-  overflow: hidden;
-}
-
-.zombie, .runner {
-  position: absolute;
-  top: 0;
-  font-size: 32px;
-  animation-duration: 6s;
-  animation-iteration-count: infinite;
-}
-
-.zombie {
-  left: -50px;
-  animation-name: chaseZombie;
-}
-
-.runner {
-  left: 100%;
-  animation-name: fleeRunner;
+  display: none;
+  margin-top: 20px;
+  z-index: 3;
 }
 
 #zombieImage {
   max-width: 600px;
-  margin-top: 20px;
   opacity: 0;
   transition: opacity 1s ease-in;
-  z-index: 3;
 }
 
 #zombieImage.fade-in {
   opacity: 1;
 }
 
-.skulls {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 40px;
+/* Steam overlay effect */
+.steam-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.6) 100%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-.skull {
-  font-size: 28px;
-  animation: floatSkull 4s ease-in-out infinite;
+.steam-overlay.steam-active {
+  opacity: 0.6;
 }
 
 footer {
-  background-color: #222footer {
   background-color: #222;
   color: #ccc;
   padding: 20px;
@@ -226,19 +237,6 @@ footer {
   margin-top: 10px;
 }
 
-/* Summoned zombie image */
-#zombieImage {
-  max-width: 600px;
-  margin-top: 20px;
-  opacity: 0;
-  transition: opacity 1s ease-in;
-  z-index: 3;
-}
-
-#zombieImage.fade-in {
-  opacity: 1;
-}
-
 /* Animations */
 @keyframes fogMove {
   0% { transform: translateX(0); }
@@ -248,12 +246,6 @@ footer {
 @keyframes flyBat {
   0% { transform: translateX(0); }
   100% { transform: translateX(120vw); }
-}
-
-@keyframes floatSkull {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
 }
 
 @keyframes floatZombie {
