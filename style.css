@@ -199,6 +199,8 @@ nav a {
   transition: all 0.3s ease;
   font-family: 'Griffy', cursive;
   letter-spacing: 0.05em;
+  display: block;
+  margin: 40px auto;
 }
 
 .zombie-button:hover {
@@ -302,6 +304,7 @@ footer {
   text-align: center;
   font-family: 'Griffy', cursive;
   letter-spacing: 0.05em;
+  margin-top: 80px;
 }
 
 .sweets {
