@@ -40,6 +40,7 @@
         <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde">
         <div class="steam-overlay"></div>
       </div>
+      <div id="zombieHorde"></div>
     </section>
 
     <section id="features">
@@ -49,6 +50,17 @@
         <li>🦇 Night Vision</li>
         <li>🎃 Pumpkin Armor</li>
       </ul>
+      <div id="audioBox" style="display: none;">
+        <audio id="zombieAudio">
+          <source src="Audio/Plague of Zombies V1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <div class="audio-controls">
+          <button onclick="playAudio()">▶️ Play</button>
+          <button onclick="pauseAudio()">⏸️ Pause</button>
+          <button onclick="stopAudio()">⏹️ Stop</button>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -66,18 +78,51 @@
       const wrapper = document.getElementById("zombieWrapper");
       const img = document.getElementById("zombieImage");
       const overlay = document.querySelector(".steam-overlay");
+      const horde = document.getElementById("zombieHorde");
+      const audioBox = document.getElementById("audioBox");
 
       if (!hordeVisible) {
         wrapper.style.display = "block";
         img.classList.add("fade-in");
         overlay.classList.add("steam-active");
+        audioBox.style.display = "block";
+
+        for (let i = 0; i < 50; i++) {
+          const z = document.createElement("div");
+          z.className = "scroll-zombie";
+          z.style.top = `${Math.random() * 300}px`;
+          z.style.animationDuration = `${2 + Math.random() * 3}s`;
+          z.textContent = "🧟";
+          horde.appendChild(z);
+          setTimeout(() => z.remove(), 6000);
+        }
+
         hordeVisible = true;
       } else {
         img.classList.remove("fade-in");
         overlay.classList.remove("steam-active");
         wrapper.style.display = "none";
+        audioBox.style.display = "none";
+        horde.innerHTML = "";
+        stopAudio();
         hordeVisible = false;
       }
+    }
+
+    function playAudio() {
+      const audio = document.getElementById("zombieAudio");
+      audio.play();
+    }
+
+    function pauseAudio() {
+      const audio = document.getElementById("zombieAudio");
+      audio.pause();
+    }
+
+    function stopAudio() {
+      const audio = document.getElementById("zombieAudio");
+      audio.pause();
+      audio.currentTime = 0;
     }
   </script>
 
