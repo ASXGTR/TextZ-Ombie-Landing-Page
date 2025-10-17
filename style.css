@@ -78,6 +78,31 @@ nav a {
   padding-top: 40px;
 }
 
+/* Discord Invite */
+#discordInvite {
+  display: none;
+  position: absolute;
+  top: 140px;
+  right: 40px;
+  z-index: 999;
+}
+
+.discord-button {
+  background-color: #222;
+  color: #9acd32;
+  border: 1px solid #9acd32;
+  padding: 10px 20px;
+  font-family: 'Griffy', cursive;
+  text-decoration: none;
+  font-size: 16px;
+  box-shadow: 0 0 10px #9acd32;
+  transition: transform 0.2s ease;
+}
+
+.discord-button:hover {
+  transform: scale(1.05);
+}
+
 /* Footer */
 footer {
   background-color: #222;
@@ -108,111 +133,6 @@ footer {
   background-repeat: no-repeat;
   z-index: -2;
   opacity: 0.4;
-}
-
-/* Discord */
-#discordInvite {
-  display: none;
-  position: absolute;
-  top: 140px;
-  right: 40px;
-  z-index: 999;
-}
-
-.discord-button {
-  background-color: #222;
-  color: #9acd32;
-  border: 1px solid #9acd32;
-  padding: 10px 20px;
-  font-family: 'Griffy', cursive;
-  text-decoration: none;
-}
-
-/* Audio Box */
-#audioBox {
-  display: none;
-  margin-top: 20px;
-}
-
-.audio-controls {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.audio-controls button {
-  background-color: #222;
-  color: #9acd32;
-  border: 1px solid #9acd32;
-  padding: 8px 12px;
-  font-family: 'Griffy', cursive;
-  cursor: pointer;
-}
-
-/* Zombie Button */
-.zombie-button {
-  margin-top: 40px;
-  padding: 12px 24px;
-  font-size: 18px;
-  background-color: #222;
-  color: #9acd32;
-  border: 2px solid #9acd32;
-  font-family: 'Griffy', cursive;
-  cursor: pointer;
-}
-
-/* Zombie Horde Image */
-#zombieWrapper {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  position: relative;
-}
-
-#zombieImage {
-  width: 80%;
-  max-width: 600px;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.fade-in {
-  opacity: 1 !important;
-}
-
-/* Steam Overlay */
-.steam-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.8) 100%);
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  z-index: 1;
-}
-
-.steam-active {
-  opacity: 1;
-}
-
-/* Horde Animation */
-#zombieHorde {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  margin-top: 20px;
-  z-index: 2;
-}
-
-.scroll-zombie {
-  font-size: 24px;
-  position: absolute;
-  animation-fill-mode: forwards;
 }
 
 /* Fog */
@@ -262,6 +182,101 @@ footer {
   animation: fleeRunner 10s linear infinite;
 }
 
+/* Zombie Button */
+.zombie-button {
+  position: relative;
+  top: 20px;
+  margin-bottom: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #222;
+  color: #9acd32;
+  border: 2px solid #9acd32;
+  font-family: 'Griffy', cursive;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Audio Box */
+#audioBox {
+  display: none;
+  margin-top: 20px;
+}
+
+.audio-controls {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.audio-controls button {
+  background-color: #222;
+  color: #9acd32;
+  border: 1px solid #9acd32;
+  padding: 8px 12px;
+  font-family: 'Griffy', cursive;
+  cursor: pointer;
+}
+
+/* Zombie Image */
+#zombieWrapper {
+  position: absolute;
+  top: 460px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+#zombieImage {
+  width: 80%;
+  max-width: 600px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+/* Steam Overlay */
+.steam-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.8) 100%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.steam-active {
+  opacity: 1;
+}
+
+/* Zombie Horde Animation */
+#zombieHorde {
+  position: absolute;
+  top: 260px;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.scroll-zombie {
+  font-size: 24px;
+  position: absolute;
+  animation-fill-mode: forwards;
+}
+
 /* Animations */
 @keyframes fogMove {
   0% { transform: translateX(0); }
@@ -284,8 +299,8 @@ footer {
 }
 
 @keyframes scrollZombie {
-  0% { transform: translateX(-100px); opacity: 1; }
-  100% { transform: translateX(100vw); opacity: 0; }
+  0% { transform: translateX(100vw); opacity: 1; }
+  100% { transform: translateX(-100px); opacity: 0; }
 }
 
 @keyframes drift-up {

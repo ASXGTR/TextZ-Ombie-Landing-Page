@@ -21,6 +21,7 @@
       </nav>
     </header>
 
+    <!-- 🧠 Discord Invite Button -->
     <div id="discordInvite">
       <a href="https://discord.gg/jYccCCf68A" target="_blank" class="discord-button">🧠 Join the Ritual</a>
     </div>
@@ -28,6 +29,8 @@
     <main>
       <section id="hero">
         <div class="hero-bg"></div>
+        <button class="zombie-button" onclick="toggleZombie()">Summon the Horde</button>
+
         <div class="fog"></div>
         <div class="sky">
           <div class="bat">🦇</div>
@@ -38,14 +41,6 @@
           <div class="zombie">🧟</div>
           <div class="runner">🏃</div>
         </div>
-        <button class="zombie-button" onclick="toggleZombie()">Summon the Horde</button>
-
-        <div id="zombieWrapper">
-          <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde">
-          <div class="steam-overlay"></div>
-        </div>
-
-        <div id="zombieHorde"></div>
 
         <div id="audioBox">
           <audio id="zombieAudio">
@@ -59,6 +54,15 @@
           </div>
         </div>
       </section>
+
+      <!-- 🧟‍♂️ Zombie Horde Animation -->
+      <div id="zombieHorde"></div>
+
+      <!-- 🧟 Zombie Image Reveal -->
+      <div id="zombieWrapper">
+        <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde">
+        <div class="steam-overlay"></div>
+      </div>
 
       <section id="features">
         <h2>Why Join the Horde?</h2>
@@ -75,6 +79,7 @@
       <div class="sweets">🍬 🍭 🍫 🍬 🍭 🍫 🍬 🍭 🍫</div>
     </footer>
   </div>
+
   <script>
     let hordeVisible = false;
 
@@ -91,11 +96,11 @@
         overlay.classList.add("steam-active");
         audioBox.style.display = "block";
 
-        for (let i = 0; i < 200; i++) {
+        for (let i = 0; i < 120; i++) {
           const z = document.createElement("div");
           z.className = "scroll-zombie";
           const speed = 3 + Math.random() * 5;
-          const startTop = 200 + Math.random() * 400;
+          const startTop = 20 + Math.random() * 160;
           const drift = Math.random() > 0.5 ? "drift-up" : "drift-down";
 
           z.style.position = "absolute";
