@@ -45,7 +45,7 @@ This page will evolve into a **demo site for my survival game**, featuring:
 
 ## 🧙‍♂️ Author
 
-Made by **Therealjohnfromengland**  
+Made by **Therealjohnfromengland** -  ASXGTR  - 
 Ritualized with mythic intent and shrine-safe code.
 
 ---
