@@ -19,9 +19,13 @@
       </div>
       <nav>
         <a href="#features">Features</a>
-        <a href="#summon">Summon</a>
+        <a href="#hero" onclick="toggleDiscordInvite(event)">Summon</a>
       </nav>
     </header>
+
+    <div id="discordInvite" style="display: none; position: absolute; top: 140px; right: 40px; z-index: 999;">
+      <a href="https://discord.gg/jYccCCf68A" target="_blank" class="discord-button">🧠 Join the Ritual</a>
+    </div>
 
     <section id="hero">
       <div class="hero-bg"></div>
@@ -87,14 +91,14 @@
         overlay.classList.add("steam-active");
         audioBox.style.display = "block";
 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 200; i++) {
           const z = document.createElement("div");
           z.className = "scroll-zombie";
-          z.style.top = `${Math.random() * 300}px`;
-          z.style.animationDuration = `${2 + Math.random() * 3}s`;
+          z.style.top = `${300 + Math.random() * 300}px`;
+          z.style.animationDuration = `${1 + Math.random() * 7}s`;
           z.textContent = "🧟";
           horde.appendChild(z);
-          setTimeout(() => z.remove(), 6000);
+          setTimeout(() => z.remove(), 9000);
         }
 
         hordeVisible = true;
@@ -123,6 +127,12 @@
       const audio = document.getElementById("zombieAudio");
       audio.pause();
       audio.currentTime = 0;
+    }
+
+    function toggleDiscordInvite(event) {
+      event.preventDefault();
+      const invite = document.getElementById("discordInvite");
+      invite.style.display = invite.style.display === "none" ? "block" : "none";
     }
   </script>
 
