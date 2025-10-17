@@ -27,7 +27,7 @@
 
 ## 🪦 Live Demo
 
-🔗 [Visit the undead landing page](https://yourusername.github.io/textz-ombie-landing-page)  
+🔗 [Visit the undead landing page](https://asxgtr.github.io/TextZ-Ombie-Landing-Page/)  
 🔗 [View the CodePen prototype](https://codepen.io/yourusername/pen/yourpenid)
 
 ---

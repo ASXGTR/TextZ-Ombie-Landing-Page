@@ -28,7 +28,6 @@
 ## 🪦 Live Demo
 
 🔗 [Visit the undead landing page](https://yourusername.github.io/textz-ombie-landing-page)  
-🔗 [View the CodePen prototype](https://codepen.io/yourusername/pen/yourpenid)
 
 ---
 
