@@ -25,10 +25,6 @@
 
 ---
 
-## 🪦 Live Demo
-
-🔗 [Visit the undead landing page](https://yourusername.github.io/textz-ombie-landing-page)  
-
 ---
 
 ## 🔮 Future Plans
