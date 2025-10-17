@@ -36,7 +36,7 @@
         <div class="runner">🏃</div>
       </div>
       <button class="zombie-button" onclick="toggleZombie()">Summon the Horde</button>
-      <div id="zombieWrapper">
+      <div id="zombieWrapper" style="display: none;">
         <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde">
         <div class="steam-overlay"></div>
       </div>
@@ -68,9 +68,9 @@
       const overlay = document.querySelector(".steam-overlay");
 
       if (!hordeVisible) {
+        wrapper.style.display = "block";
         img.classList.add("fade-in");
         overlay.classList.add("steam-active");
-        wrapper.style.display = "block";
         hordeVisible = true;
       } else {
         img.classList.remove("fade-in");
