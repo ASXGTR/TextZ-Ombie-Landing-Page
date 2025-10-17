@@ -27,48 +27,50 @@
       <a href="https://discord.gg/jYccCCf68A" target="_blank" class="discord-button">🧠 Join the Ritual</a>
     </div>
 
-    <section id="hero">
-      <div class="hero-bg"></div>
-      <div class="fog"></div>
-      <div class="sky">
-        <div class="bat">🦇</div>
-        <div class="bat">🦇</div>
-        <div class="bat">🦇</div>
-      </div>
-      <div class="chase">
-        <div class="zombie">🧟</div>
-        <div class="runner">🏃</div>
-      </div>
-      <button class="zombie-button" onclick="toggleZombie()">Summon the Horde</button>
-
-      <div id="zombieWrapper" style="display: none;">
-        <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde">
-        <div class="steam-overlay"></div>
-      </div>
-
-      <div id="zombieHorde"></div>
-    </section>
-
-    <section id="features">
-      <h2>Why Join the Horde?</h2>
-      <ul>
-        <li>💀 Undead Loyalty</li>
-        <li>🦇 Night Vision</li>
-        <li>🎃 Pumpkin Armor</li>
-      </ul>
-
-      <div id="audioBox" style="display: none;">
-        <audio id="zombieAudio">
-          <source src="Audio/Plague of Zombies V1.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-        <div class="audio-controls">
-          <button onclick="playAudio()">▶️ Play</button>
-          <button onclick="pauseAudio()">⏸️ Pause</button>
-          <button onclick="stopAudio()">⏹️ Stop</button>
+    <main>
+      <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="fog"></div>
+        <div class="sky">
+          <div class="bat">🦇</div>
+          <div class="bat">🦇</div>
+          <div class="bat">🦇</div>
         </div>
-      </div>
-    </section>
+        <div class="chase">
+          <div class="zombie">🧟</div>
+          <div class="runner">🏃</div>
+        </div>
+        <button class="zombie-button" onclick="toggleZombie()">Summon the Horde</button>
+
+        <div id="zombieWrapper" style="display: none;">
+          <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde">
+          <div class="steam-overlay"></div>
+        </div>
+
+        <div id="zombieHorde"></div>
+      </section>
+
+      <section id="features">
+        <h2>Why Join the Horde?</h2>
+        <ul>
+          <li>💀 Undead Loyalty</li>
+          <li>🦇 Night Vision</li>
+          <li>🎃 Pumpkin Armor</li>
+        </ul>
+
+        <div id="audioBox" style="display: none;">
+          <audio id="zombieAudio">
+            <source src="Audio/Plague of Zombies V1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <div class="audio-controls">
+            <button onclick="playAudio()">▶️ Play</button>
+            <button onclick="pauseAudio()">⏸️ Pause</button>
+            <button onclick="stopAudio()">⏹️ Stop</button>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <p>Made by ASXGTR 🧟‍♂️</p>

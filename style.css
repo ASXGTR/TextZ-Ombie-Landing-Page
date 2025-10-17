@@ -1,26 +1,29 @@
-/* === Base Layout === */
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   background-color: #0b0c10;
   font-family: 'Griffy', cursive;
   color: #fff;
   scroll-behavior: smooth;
   overflow-x: hidden;
   letter-spacing: 0.05em;
-  min-height: 300vh;
 }
 
 .container {
-  width: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-sizing: border-box;
 }
 
-/* === Header & Nav === */
+main {
+  flex: 1;
+  width: 100%;
+}
+
+/* === Header === */
 header {
   position: fixed;
   top: 0;
@@ -67,254 +70,22 @@ nav a {
   padding-top: 40px;
 }
 
-/* === Discord Button === */
-.discord-button {
-  background-color: #5865F2;
-  color: #fff;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 0 12px #5865F2;
-  font-family: 'Griffy', cursive;
-  transition: all 0.3s ease;
-}
-
-.discord-button:hover {
-  background-color: #4752c4;
-  box-shadow: 0 0 20px #5865F2;
-  transform: scale(1.05);
-}
-
 /* === Hero Background === */
 .hero-bg {
-  background-image: url("assets/Logo006Expanded.png");
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
   position: absolute;
   top: 160px;
   left: 0;
   width: 100%;
-  height: calc(100% - 160px);
+  height: calc(100% - 160px - 160px);
+  background-image: url("assets/Logo006Expanded.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
   z-index: -2;
   opacity: 0.4;
 }
 
-/* === Fog Overlay === */
-.fog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.6) 100%);
-  animation: fogMove 20s linear infinite;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* === Flying Bats === */
-.sky {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.bat {
-  position: absolute;
-  top: 10%;
-  font-size: 24px;
-  animation: flyBat 8s linear infinite;
-}
-
-.bat:nth-child(1) { left: -50px; animation-delay: 0s; }
-.bat:nth-child(2) { left: -100px; animation-delay: 2s; }
-.bat:nth-child(3) { left: -150px; animation-delay: 4s; }
-
-/* === Chase Animation === */
-.chase {
-  position: relative;
-  width: 100%;
-  height: 60px;
-  margin-top: 40px;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.zombie, .runner {
-  position: absolute;
-  top: 0;
-  font-size: 32px;
-  animation-duration: 6s;
-  animation-iteration-count: infinite;
-}
-
-.zombie {
-  left: -50px;
-  animation-name: chaseZombie;
-}
-
-.runner {
-  left: 100%;
-  animation-name: fleeRunner;
-}
-
-/* === Summon Button === */
-.zombie-button {
-  background-color: #4b5320;
-  color: #fff;
-  border: 2px solid #8a9a5b;
-  padding: 20px 40px;
-  font-size: 24px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #8a9a5b;
-  cursor: pointer;
-  font-family: 'Griffy', cursive;
-  margin: 40px auto;
-  display: block;
-  transition: all 0.3s ease;
-}
-
-.zombie-button:hover {
-  background-color: #6b8e23;
-  box-shadow: 0 0 30px #9acd32;
-  transform: scale(1.05);
-}
-
-/* === Zombie Image + Steam Overlay === */
-#zombieWrapper {
-  position: relative;
-  display: none;
-  margin-top: 40px;
-  flex-direction: column;
-  align-items: center;
-}
-
-#zombieImage {
-  max-width: 80%;
-  height: auto;
-  margin-bottom: 40px;
-  opacity: 0;
-  transition: opacity 1s ease-in;
-}
-
-#zombieImage.fade-in {
-  opacity: 1;
-}
-
-.steam-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.6) 100%);
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.steam-overlay.steam-active {
-  opacity: 0.6;
-}
-
-/* === Zombie Horde Scroll Zone === */
-#zombieHorde {
-  position: absolute;
-  top: 300px;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 300px);
-  pointer-events: none;
-  z-index: 4;
-}
-
-.scroll-zombie {
-  font-size: 28px;
-  position: absolute;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
-
-/* === Drift Animations === */
-@keyframes drift-up {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes drift-down {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(20px); }
-  100% { transform: translateY(0); }
-}
-
-/* === Audio Box === */
-#audioBox {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #111;
-  border: 2px solid #9acd32;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #9acd32;
-}
-
-.audio-controls {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.audio-controls button {
-  background-color: #222;
-  color: #9acd32;
-  border: 2px solid #9acd32;
-  padding: 10px 20px;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: 'Griffy', cursive;
-  transition: all 0.3s ease;
-}
-
-.audio-controls button:hover {
-  background-color: #333;
-  box-shadow: 0 0 10px #9acd32;
-  transform: scale(1.05);
-}
-
-/* === Features Section === */
-#features {
-  margin-top: 120px;
-  padding-top: 60px;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#features h2 {
-  margin-bottom: 30px;
-  letter-spacing: 0.15em;
-  font-size: 32px;
-}
-
-#features ul {
-  margin-top: 20px;
-  letter-spacing: 0.1em;
-  font-size: 20px;
-}
-
 /* === Footer === */
-footer {
-  background-color: #222;
-  color: #ccc;
-  padding: /* === Footer === */
 footer {
   background-color: #222;
   color: #ccc;
@@ -322,7 +93,23 @@ footer {
   text-align: center;
   font-family: 'Griffy', cursive;
   letter-spacing: 0.05em;
-  margin-top: 80px;
+  height: 160px;
+  width: 100%;
+}
+
+.sweets {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Griffy', cursive;
+  letter-spacing: 0.05em;
+  height: 160px;
   width: 100%;
 }
 
@@ -367,4 +154,16 @@ footer {
 @keyframes scrollZombie {
   0% { transform: translateX(-100px); opacity: 1; }
   100% { transform: translateX(100vw); opacity: 0; }
+}
+
+@keyframes drift-up {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes drift-down {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(0); }
 }
