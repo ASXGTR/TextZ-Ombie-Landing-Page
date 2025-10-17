@@ -1,3 +1,4 @@
+/* === Base Layout === */
 body {
   margin: 0;
   padding: 0;
@@ -15,6 +16,7 @@ body {
   box-sizing: border-box;
 }
 
+/* === Header & Nav === */
 header {
   position: fixed;
   top: 0;
@@ -63,6 +65,7 @@ nav a {
   padding-top: 40px;
 }
 
+/* === Discord Button === */
 .discord-button {
   background-color: #5865F2;
   color: #fff;
@@ -81,32 +84,8 @@ nav a {
   transform: scale(1.05);
 }
 
-section {
-  padding: 100px 20px;
-  text-align: center;
-}
-
-#hero {
-  position: relative;
-  height: 100vh;
-  padding-top: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
+/* === Hero Background === */
 .hero-bg {
-  background-image: url("assets/Logo006Expanded.png");
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 160px;
-  left: 0;
-  width: 100%;
-  height:.hero-bg {
   background-image: url("assets/Logo006Expanded.png");
   background-size: cover;
   background-position: top center;
@@ -120,6 +99,29 @@ section {
   opacity: 0.4;
 }
 
+/* === Zombie Horde Scroll Zone === */
+#zombieHorde {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 300px);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.scroll-zombie {
+  font-size: 28px;
+  position: absolute;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scrollZombie {
+  0% { transform: translateX(-100px); opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+/* === Fog Overlay === */
 .fog {
   position: absolute;
   top: 0;
@@ -132,6 +134,7 @@ section {
   pointer-events: none;
 }
 
+/* === Flying Bats === */
 .sky {
   position: absolute;
   top: 0;
@@ -153,6 +156,7 @@ section {
 .bat:nth-child(2) { left: -100px; animation-delay: 2s; }
 .bat:nth-child(3) { left: -150px; animation-delay: 4s; }
 
+/* === Chase Animation === */
 .chase {
   position: relative;
   width: 100%;
@@ -180,6 +184,7 @@ section {
   animation-name: fleeRunner;
 }
 
+/* === Summon Button === */
 .zombie-button {
   background-color: #4b5320;
   color: #fff;
@@ -220,6 +225,7 @@ section {
   animation: floatPumpkin 2s infinite ease-in-out;
 }
 
+/* === Zombie Image + Steam Overlay === */
 #zombieWrapper {
   position: relative;
   display: none;
@@ -253,30 +259,7 @@ section {
   opacity: 0.6;
 }
 
-#zombieHorde {
-  position: absolute;
-  top: 300px;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 300px);
-  pointer-events: none;
-  z-index: 4;
-}
-
-.scroll-zombie {
-  position: absolute;
-  right: -50px;
-  font-size: 28px;
-  animation-name: scrollZombie;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
-
-@keyframes scrollZombie {
-  0% { right: -50px; }
-  100% { right: 100vw; opacity: 0; }
-}
-
+/* === Audio Box === */
 #audioBox {
   margin-top: 20px;
   padding: 10px;
@@ -311,6 +294,7 @@ section {
   transform: scale(1.05);
 }
 
+/* === Footer === */
 footer {
   background-color: #222;
   color: #ccc;
@@ -325,6 +309,7 @@ footer {
   margin-top: 10px;
 }
 
+/* === Animations === */
 @keyframes fogMove {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100px); }
@@ -355,4 +340,9 @@ footer {
 @keyframes fleeRunner {
   0% { left: 100%; }
   100% { left: -50px; }
+}
+
+@keyframes scrollZombie {
+  0% { transform: translateX(-100px); opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
 }

@@ -94,8 +94,10 @@
         for (let i = 0; i < 200; i++) {
           const z = document.createElement("div");
           z.className = "scroll-zombie";
+          z.style.position = "absolute";
+          z.style.left = `${Math.random() * window.innerWidth}px`;
           z.style.top = `${300 + Math.random() * 300}px`;
-          z.style.animationDuration = `${1 + Math.random() * 7}s`;
+          z.style.animation = `scrollZombie ${1 + Math.random() * 7}s linear forwards`;
           z.textContent = "🧟";
           horde.appendChild(z);
           setTimeout(() => z.remove(), 9000);
