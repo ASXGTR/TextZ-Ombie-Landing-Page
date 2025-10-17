@@ -91,3 +91,59 @@
       if (!hordeVisible) {
         wrapper.style.display = "flex";
         img.classList.add("fade-in");
+        overlay.classList.add("steam-active");
+        audioBox.style.display = "block";
+
+        for (let i = 0; i < 200; i++) {
+          const z = document.createElement("div");
+          z.className = "scroll-zombie";
+          const speed = 3 + Math.random() * 5;
+          const startTop = 200 + Math.random() * 400;
+          const drift = Math.random() > 0.5 ? "drift-up" : "drift-down";
+
+          z.style.position = "absolute";
+          z.style.left = "100%";
+          z.style.top = `${startTop}px`;
+          z.style.animation = `scrollZombie ${speed}s linear forwards, ${drift} ${speed}s ease-in-out infinite`;
+          z.textContent = "🧟";
+          horde.appendChild(z);
+          setTimeout(() => z.remove(), 9000);
+        }
+
+        hordeVisible = true;
+      } else {
+        img.classList.remove("fade-in");
+        overlay.classList.remove("steam-active");
+        wrapper.style.display = "none";
+        audioBox.style.display = "none";
+        horde.innerHTML = "";
+        stopAudio();
+        hordeVisible = false;
+      }
+    }
+
+    function playAudio() {
+      const audio = document.getElementById("zombieAudio");
+      audio.play();
+    }
+
+    function pauseAudio() {
+      const audio = document.getElementById("zombieAudio");
+      audio.pause();
+    }
+
+    function stopAudio() {
+      const audio = document.getElementById("zombieAudio");
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
+    function toggleDiscordInvite(event) {
+      event.preventDefault();
+      const invite = document.getElementById("discordInvite");
+      invite.style.display = invite.style.display === "none" ? "block" : "none";
+    }
+  </script>
+
+</body>
+</html>
