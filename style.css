@@ -14,21 +14,22 @@ html, body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
 main {
   flex: 1;
   width: 100%;
+  padding-top: 160px;
+  padding-bottom: 160px;
 }
 
-/* === Header === */
+/* Header */
 header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 160px;
   background-image: url("assets/Banner01.png");
   background-size: cover;
@@ -62,6 +63,13 @@ header h1 {
   color: #9acd32;
 }
 
+.subtitle {
+  font-size: 16px;
+  color: #ccc;
+  margin-top: -10px;
+  font-family: 'Griffy', cursive;
+}
+
 nav a {
   margin-left: 15px;
   color: #9acd32;
@@ -70,7 +78,24 @@ nav a {
   padding-top: 40px;
 }
 
-/* === Hero Background === */
+/* Footer */
+footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Griffy', cursive;
+  letter-spacing: 0.05em;
+  height: 160px;
+  width: 100%;
+}
+
+.sweets {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+/* Hero Background */
 .hero-bg {
   position: absolute;
   top: 160px;
@@ -85,40 +110,159 @@ nav a {
   opacity: 0.4;
 }
 
-/* === Footer === */
-footer {
+/* Discord */
+#discordInvite {
+  display: none;
+  position: absolute;
+  top: 140px;
+  right: 40px;
+  z-index: 999;
+}
+
+.discord-button {
   background-color: #222;
-  color: #ccc;
-  padding: 20px;
-  text-align: center;
+  color: #9acd32;
+  border: 1px solid #9acd32;
+  padding: 10px 20px;
   font-family: 'Griffy', cursive;
-  letter-spacing: 0.05em;
-  height: 160px;
-  width: 100%;
+  text-decoration: none;
 }
 
-.sweets {
-  font-size: 24px;
+/* Audio Box */
+#audioBox {
+  display: none;
+  margin-top: 20px;
+}
+
+.audio-controls {
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-footer {
+.audio-controls button {
   background-color: #222;
-  color: #ccc;
-  padding: 20px;
-  text-align: center;
+  color: #9acd32;
+  border: 1px solid #9acd32;
+  padding: 8px 12px;
   font-family: 'Griffy', cursive;
-  letter-spacing: 0.05em;
-  height: 160px;
+  cursor: pointer;
+}
+
+/* Zombie Button */
+.zombie-button {
+  margin-top: 40px;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #222;
+  color: #9acd32;
+  border: 2px solid #9acd32;
+  font-family: 'Griffy', cursive;
+  cursor: pointer;
+}
+
+/* Zombie Horde Image */
+#zombieWrapper {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+#zombieImage {
+  width: 80%;
+  max-width: 600px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+/* Steam Overlay */
+.steam-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.8) 100%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
 }
 
-.sweets {
+.steam-active {
+  opacity: 1;
+}
+
+/* Horde Animation */
+#zombieHorde {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  margin-top: 20px;
+  z-index: 2;
+}
+
+.scroll-zombie {
   font-size: 24px;
-  margin-top: 10px;
+  position: absolute;
+  animation-fill-mode: forwards;
 }
 
-/* === Animations === */
+/* Fog */
+.fog {
+  position: absolute;
+  top: 160px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 160px - 160px);
+  background: url("assets/FogLayer.png") repeat-x;
+  animation: fogMove 60s linear infinite;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+/* Bats */
+.sky {
+  position: relative;
+  height: 100px;
+  margin-top: 40px;
+}
+
+.bat {
+  position: absolute;
+  top: 0;
+  left: -100px;
+  font-size: 24px;
+  animation: flyBat 20s linear infinite;
+}
+
+/* Chase */
+.chase {
+  position: relative;
+  height: 100px;
+  margin-top: 40px;
+}
+
+.zombie {
+  position: absolute;
+  left: -50px;
+  animation: chaseZombie 10s linear infinite;
+}
+
+.runner {
+  position: absolute;
+  left: 100%;
+  animation: fleeRunner 10s linear infinite;
+}
+
+/* Animations */
 @keyframes fogMove {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100px); }
@@ -127,18 +271,6 @@ footer {
 @keyframes flyBat {
   0% { transform: translateX(0); }
   100% { transform: translateX(120vw); }
-}
-
-@keyframes floatZombie {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes floatPumpkin {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
-  100% { transform: translateY(0); }
 }
 
 @keyframes chaseZombie {

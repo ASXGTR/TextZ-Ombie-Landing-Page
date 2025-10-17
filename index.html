@@ -13,9 +13,7 @@
     <header>
       <div>
         <h1>🧟‍♂️ TextZ Ombie</h1>
-        <p style="font-size: 16px; color: #ccc; margin-top: -10px; font-family: 'Griffy', cursive;">
-          2D zombie apocalypse survival hardcore
-        </p>
+        <p class="subtitle">2D zombie apocalypse survival hardcore</p>
       </div>
       <nav>
         <a href="#features">Features</a>
@@ -23,7 +21,7 @@
       </nav>
     </header>
 
-    <div id="discordInvite" style="display: none; position: absolute; top: 140px; right: 40px; z-index: 999;">
+    <div id="discordInvite">
       <a href="https://discord.gg/jYccCCf68A" target="_blank" class="discord-button">🧠 Join the Ritual</a>
     </div>
 
@@ -42,23 +40,14 @@
         </div>
         <button class="zombie-button" onclick="toggleZombie()">Summon the Horde</button>
 
-        <div id="zombieWrapper" style="display: none;">
+        <div id="zombieWrapper">
           <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde">
           <div class="steam-overlay"></div>
         </div>
 
         <div id="zombieHorde"></div>
-      </section>
 
-      <section id="features">
-        <h2>Why Join the Horde?</h2>
-        <ul>
-          <li>💀 Undead Loyalty</li>
-          <li>🦇 Night Vision</li>
-          <li>🎃 Pumpkin Armor</li>
-        </ul>
-
-        <div id="audioBox" style="display: none;">
+        <div id="audioBox">
           <audio id="zombieAudio">
             <source src="Audio/Plague of Zombies V1.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
@@ -70,16 +59,22 @@
           </div>
         </div>
       </section>
+
+      <section id="features">
+        <h2>Why Join the Horde?</h2>
+        <ul>
+          <li>💀 Undead Loyalty</li>
+          <li>🦇 Night Vision</li>
+          <li>🎃 Pumpkin Armor</li>
+        </ul>
+      </section>
     </main>
 
     <footer>
       <p>Made by ASXGTR 🧟‍♂️</p>
-      <div class="sweets">
-        🍬 🍭 🍫 🍬 🍭 🍫 🍬 🍭 🍫
-      </div>
+      <div class="sweets">🍬 🍭 🍫 🍬 🍭 🍫 🍬 🍭 🍫</div>
     </footer>
   </div>
-
   <script>
     let hordeVisible = false;
 
