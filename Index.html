@@ -4,51 +4,76 @@
   <meta charset="UTF-8">
   <title>TextZ Ombie Landing Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Griffy&display=swap" rel="stylesheet">
-  <!-- Link to external CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>🧟‍♂️ Zombie Horde</h1>
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#summon">Summon</a>
-    </nav>
-  </header>
+  <div class="container">
+    <header>
+      <div>
+        <h1>🧟‍♂️ TextZ Ombie</h1>
+        <p style="font-size: 16px; color: #ccc; margin-top: -10px; font-family: 'Griffy', cursive;">
+          2D zombie apocalypse survival hardcore
+        </p>
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#summon">Summon</a>
+      </nav>
+    </header>
 
-  <section id="hero">
-    <div class="fog"></div>
-    <div class="sky">
-      <div class="bat">🦇</div>
-      <div class="bat">🦇</div>
-      <div class="bat">🦇</div>
-    </div>
-    <button class="zombie-button" id="summon">Summon the Horde</button>
-  </section>
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="fog"></div>
+      <div class="sky">
+        <div class="bat">🦇</div>
+        <div class="bat">🦇</div>
+        <div class="bat">🦇</div>
+      </div>
+      <div class="chase">
+        <div class="zombie">🧟</div>
+        <div class="runner">🏃</div>
+      </div>
+      <button class="zombie-button" onclick="showZombie()">Summon the Horde</button>
+      <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde" style="display:none;">
+    </section>
 
-  <section id="features">
-    <h2>Why Join the Horde?</h2>
-    <ul>
-      <li>💀 Undead Loyalty</li>
-      <li>🦇 Night Vision</li>
-      <li>🎃 Pumpkin Armor</li>
-    </ul>
-  </section>
+    <section id="features">
+      <h2>Why Join the Horde?</h2>
+      <ul>
+        <li>💀 Undead Loyalty</li>
+        <li>🦇 Night Vision</li>
+        <li>🎃 Pumpkin Armor</li>
+      </ul>
+    </section>
 
-  <section id="gallery">
-    <div class="skulls">
-      <div class="skull">💀</div>
-      <div class="skull">💀</div>
-      <div class="skull">💀</div>
-    </div>
-  </section>
+    <section id="gallery">
+      <div class="skulls">
+        <div class="skull">💀</div>
+        <div class="skull">💀</div>
+        <div class="skull">💀</div>
+      </div>
+      <img src="assets/skull.png" alt="Skull">
+      <img src="assets/fog.png" alt="Fog">
+      <img src="assets/zombie2.png" alt="Zombie Variant">
+    </section>
 
-  <footer>
-    <p>Made by ASXGTR 🧟‍♂️</p>
-  </footer>
+    <footer>
+      <p>Made by ASXGTR 🧟‍♂️</p>
+      <div class="sweets">
+        🍬 🍭 🍫 🍬 🍭 🍫 🍬 🍭 🍫
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function showZombie() {
+      const img = document.getElementById("zombieImage");
+      img.style.display = "block";
+      img.classList.add("fade-in");
+    }
+  </script>
 
 </body>
 </html>
