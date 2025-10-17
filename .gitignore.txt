@@ -1,0 +1,41 @@
+# Node modules (if you add npm or build tools later)
+node_modules/
+
+# Build output (if you use bundlers like Webpack, Vite, etc.)
+dist/
+build/
+
+# OS-specific clutter
+.DS_Store
+Thumbs.db
+
+# Logs and temp files
+*.log
+*.tmp
+
+# IDE/editor configs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment files (if you add secrets later)
+.env
+.env.local
+.env.production
+
+# Game engine artifacts (if you integrate Unity, Godot, etc.)
+*.unity
+*.godot
+*.gltf
+*.blend
+*.fbx
+*.exe
+*.dll
+*.pdb
+*.apk
+*.zip
+*.tar.gz
+
+# Optional: ignore raw game assets if hosted elsewhere
+assets/raw/

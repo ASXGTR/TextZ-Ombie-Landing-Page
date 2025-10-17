@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  background-color: #0b0c10;
+  font-family: 'Griffy', cursive;
+  color: #fff;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+header h1 {
+  font-family: 'Creepster', cursive;
+  font-size: 48px;
+  color: #9acd32;
+}
+
+nav a {
+  margin-left: 15px;
+  color: #9acd32;
+  text-decoration: none;
+  font-family: 'Griffy', cursive;
+}
+
+section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zombie-button {
+  background-color: #4b5320;
+  color: #fff;
+  border: 2px solid #8a9a5b;
+  padding: 20px 40px;
+  font-size: 24px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #8a9a5b;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  font-family: 'Griffy', cursive;
+}
+
+.zombie-button:hover {
+  background-color: #6b8e23;
+  box-shadow: 0 0 30px #9acd32;
+  transform: scale(1.05);
+}
+
+.zombie-button::before {
+  content: "🧟";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  font-size: 28px;
+  animation: floatZombie 2s infinite ease-in-out;
+}
+
+.zombie-button::after {
+  content: "🎃";
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  font-size: 28px;
+  animation: floatPumpkin 2s infinite ease-in-out;
+}
+
+.fog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.6) 100%);
+  animation: fogMove 10s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes fogMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100px); }
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bat {
+  position: absolute;
+  top: 10%;
+  font-size: 24px;
+  animation: flyBat 8s linear infinite;
+}
+
+.bat:nth-child(1) { left: -50px; animation-delay: 0s; }
+.bat:nth-child(2) { left: -100px; animation-delay: 2s; }
+.bat:nth-child(3) { left: -150px; animation-delay: 4s; }
+
+@keyframes flyBat {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(120vw); }
+}
+
+.skulls {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.skull {
+  font-size: 28px;
+  animation: floatSkull 4s ease-in-out infinite;
+}
+
+@keyframes floatSkull {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes floatZombie {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes floatPumpkin {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Griffy', cursive;
+}
