@@ -19,3 +19,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+## 📜 License
+
+This project is licensed under the **MIT License** for the website code and assets **only**.
+
+> ⚠️ **WARNING**: All game-related content—including mechanics, story, characters, assets, and source code from the survival engine—is **strictly proprietary** and **not covered** under this license.  
+> Redistribution, modification, or use of game content without explicit permission is prohibited.  
+> Violators risk unleashing ancient curses, recursive bugs, and plague-grade runtime errors.
