@@ -44,7 +44,14 @@
 
   <!-- Asset Gallery -->
   <section id="assets" class="container-fluid py-5">
+    <!-- Bat Swarm Above Heading -->
+    <div id="batSwarm" class="swarm-zone"></div>
+
     <h2 class="display-4 text-center mb-5"><strong>Asset Examples</strong></h2>
+
+    <!-- Spider Swarm Below Heading -->
+    <div id="spiderSwarm" class="swarm-zone"></div>
+
     <div class="row justify-content-center">
       <div class="col-md-3 mb-4">
         <img src="assets/Asset01.png" alt="Asset 1" class="img-fluid">
@@ -59,6 +66,11 @@
         <img src="assets/Asset04.png" alt="Asset 4" class="img-fluid">
       </div>
     </div>
+  </section>
+
+  <!-- Zombie Chase Animation -->
+  <section id="zombieChase">
+    <div id="chaseContainer"></div>
   </section>
 
   <!-- Footer -->
@@ -144,6 +156,38 @@
       const panel = document.getElementById("comingSoonPanel");
       panel.style.display = panel.style.display === "none" ? "block" : "none";
     }
+
+    // Zombie Chase Loop
+    let zombieCount = 1;
+    function updateChase() {
+      const container = document.getElementById("chaseContainer");
+      const zombies = "🧟".repeat(zombieCount);
+      container.innerHTML = `${zombies} 🏃`;
+      zombieCount++;
+      if (zombieCount > 7) zombieCount = 1;
+    }
+    setInterval(updateChase, 10000);
+    updateChase();
+
+    // Bat & Spider Swarms
+    function spawnSwarm(containerId, emoji, count) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+      const swarm = document.createElement("span");
+      swarm.textContent = emoji.repeat(count);
+      container.appendChild(swarm);
+    }
+
+    let batCount = 5;
+    let spiderCount = 7;
+
+    function loopSwarm() {
+      spawnSwarm("batSwarm", "🦇", batCount);
+      spawnSwarm("spiderSwarm", "🕷️", spiderCount);
+    }
+
+    setInterval(loopSwarm, 12000);
+    loopSwarm();
   </script>
 </body>
 </html>

@@ -133,6 +133,67 @@ html, body {
   transform: scale(1.05);
 }
 
+/* Bat and Spider Swarms */
+.swarm-zone {
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+  font-size: 28px;
+  white-space: nowrap;
+  text-align: center;
+  color: #9acd32;
+}
+
+#batSwarm span, #spiderSwarm span {
+  position: absolute;
+  top: 0;
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#batSwarm span {
+  animation-name: flyRight;
+  left: -100%;
+}
+
+#spiderSwarm span {
+  animation-name: crawlLeft;
+  right: -100%;
+}
+
+@keyframes flyRight {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes crawlLeft {
+  0% { right: -100%; }
+  100% { right: 100%; }
+}
+
+/* Zombie Chase */
+#zombieChase {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  background-color: #0b0c10;
+}
+
+#chaseContainer {
+  position: absolute;
+  top: 20px;
+  left: -100%;
+  white-space: nowrap;
+  font-size: 32px;
+  animation: chaseLoop 10s linear infinite;
+}
+
+@keyframes chaseLoop {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
 /* Footer */
 #footer {
   background-color: #111;
@@ -189,5 +250,14 @@ html, body {
 
   .footer-link {
     font-size: 16px;
+  }
+
+  .swarm-zone {
+    font-size: 22px;
+    height: 40px;
+  }
+
+  #chaseContainer {
+    font-size: 24px;
   }
 }
