@@ -9,92 +9,70 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    #hero {
-      background-image: url("assets/Background01.png");
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-      color: #fff;
-      text-shadow: 0 0 10px #000;
-    }
-
-    #music {
-      background-image: url("assets/Background02.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #fff;
-      text-shadow: 0 0 10px #000;
-    }
-
-    #zombieImage {
-      display: none;
-      margin-top: 30px;
-      max-width: 100%;
-    }
-  </style>
 </head>
 <body>
+  <div id="pageWrapper">
 
-  <!-- Hero Section -->
-  <section id="hero" class="container text-center py-5">
-    <h1 class="display-1"><strong>🧟‍♂️ TextZ Ombie 🧟‍♂️</strong></h1>
-    <p class="lead mt-3">Frontend Challenge: Halloween Edition 🦇<br>Project Expansion 🧛</p>
-    <button class="btn btn-primary mt-4" onclick="toggleZombie()">Summon the Horde</button>
+    <!-- Hero Section -->
+    <section id="hero" class="container text-center py-5">
+      <h1 class="display-1"><strong>🧟‍♂️ TextZ Ombie 🧟‍♂️</strong></h1>
+      <p class="lead mt-3">Frontend Challenge: Halloween Edition 🦇<br>Project Expansion 🧛</p>
+      <button class="btn btn-primary mt-4" onclick="summonZombies()">Summon the Horde</button>
 
-    <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde" class="img-fluid">
-  </section>
+      <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde" class="img-fluid">
+    </section>
 
-  <!-- Music Section -->
-  <section id="music" class="container py-5 text-center">
-    <h2 class="display-4 mb-4"><strong>MUSIC SECTION</strong></h2>
+    <!-- Music Section -->
+    <section id="music" class="container py-5 text-center">
+      <h2 class="display-4 mb-4"><strong>MUSIC SECTION</strong></h2>
 
-    <div id="audioBox">
-      <audio id="zombieAudio">
-        <source src="assets/PlagueOfZombiesV1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <div id="audioBox">
+        <audio id="zombieAudio">
+          <source src="assets/PlagueOfZombiesV1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
 
-      <div class="audio-controls mt-3 d-flex justify-content-center gap-3">
-        <button onclick="playAudio()" class="btn btn-outline-light">▶️ Play</button>
-        <button onclick="pauseAudio()" class="btn btn-outline-light">⏸️ Pause</button>
-        <button onclick="stopAudio()" class="btn btn-outline-light">⏹️ Stop</button>
+        <div class="audio-controls mt-3 d-flex justify-content-center gap-3">
+          <button onclick="playAudio()" class="btn btn-outline-light">▶️ Play</button>
+          <button onclick="pauseAudio()" class="btn btn-outline-light">⏸️ Pause</button>
+          <button onclick="stopAudio()" class="btn btn-outline-light">⏹️ Stop</button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Asset Gallery -->
-  <section id="assets" class="container-fluid py-5">
-    <h2 class="display-4 text-center mb-5"><strong>Asset Examples</strong></h2>
-    <div class="row justify-content-center">
-      <div class="col-md-3 mb-4">
-        <img src="assets/Asset01.png" alt="Asset 1" class="img-fluid">
+    <!-- Asset Gallery -->
+    <section id="assets" class="container-fluid py-5">
+      <h2 class="display-4 text-center mb-5"><strong>Asset Examples</strong></h2>
+      <div class="row justify-content-center">
+        <div class="col-md-3 mb-4">
+          <img src="assets/Asset01.png" alt="Asset 1" class="img-fluid">
+        </div>
+        <div class="col-md-3 mb-4">
+          <img src="assets/Asset02.png" alt="Asset 2" class="img-fluid">
+        </div>
+        <div class="col-md-3 mb-4">
+          <img src="assets/Asset03.png" alt="Asset 3" class="img-fluid">
+        </div>
+        <div class="col-md-3 mb-4">
+          <img src="assets/Asset04.png" alt="Asset 4" class="img-fluid">
+        </div>
       </div>
-      <div class="col-md-3 mb-4">
-        <img src="assets/Asset02.png" alt="Asset 2" class="img-fluid">
-      </div>
-      <div class="col-md-3 mb-4">
-        <img src="assets/Asset03.png" alt="Asset 3" class="img-fluid">
-      </div>
-      <div class="col-md-3 mb-4">
-        <img src="assets/Asset04.png" alt="Asset 4" class="img-fluid">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer id="footer" class="bg-dark text-light py-4">
-    <div class="container text-center">
-      <p class="mb-2">2025 ASXGTR - Project Alpha 1.0 - TextZ Ombie</p>
-      <ul class="list-inline">
-        <li class="list-inline-item">Summon</li>
-        <li class="list-inline-item">Grave Digging</li>
-        <li class="list-inline-item">The Crypt</li>
-        <li class="list-inline-item">Portal</li>
-      </ul>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer id="footer" class="bg-dark text-light py-4">
+      <div class="container text-center">
+        <p class="mb-2">2025 ASXGTR - Project Alpha 1.0 - TextZ Ombie</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">Summon</li>
+          <li class="list-inline-item">Grave Digging</li>
+          <li class="list-inline-item">The Crypt</li>
+          <li class="list-inline-item">Portal</li>
+        </ul>
+      </div>
+    </footer>
+
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -113,9 +91,42 @@
       audio.currentTime = 0;
     }
 
-    function toggleZombie() {
-      const zombie = document.getElementById("zombieImage");
-      zombie.style.display = (zombie.style.display === "none" || zombie.style.display === "") ? "block" : "none";
+    function summonZombies() {
+      const hordeContainer = document.createElement("div");
+      hordeContainer.style.position = "absolute";
+      hordeContainer.style.top = "0";
+      hordeContainer.style.left = "0";
+      hordeContainer.style.width = "100%";
+      hordeContainer.style.height = "100%";
+      hordeContainer.style.pointerEvents = "none";
+      document.body.appendChild(hordeContainer);
+
+      const musicSection = document.getElementById("music");
+      const musicTop = musicSection.getBoundingClientRect().top + window.scrollY;
+
+      for (let i = 0; i < 200; i++) {
+        const zombie = document.createElement("div");
+        zombie.textContent = "🧟";
+        zombie.style.position = "absolute";
+        zombie.style.left = `${Math.random() * window.innerWidth}px`;
+        zombie.style.top = `-50px`;
+        zombie.style.fontSize = "24px";
+        zombie.style.zIndex = "9999";
+
+        const speed = 1 + Math.random() * 3;
+        let y = -50;
+
+        const interval = setInterval(() => {
+          y += speed;
+          zombie.style.top = `${y}px`;
+          if (y > musicTop) {
+            clearInterval(interval);
+            zombie.remove();
+          }
+        }, 20);
+
+        hordeContainer.appendChild(zombie);
+      }
     }
   </script>
 </body>

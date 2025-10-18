@@ -1,15 +1,29 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Griffy&display=swap');
 
-body {
+/* Base Layout */
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   background-color: #0b0c10;
   font-family: 'Griffy', cursive;
   color: #fff;
   scroll-behavior: smooth;
   overflow-x: hidden;
   letter-spacing: 0.08em;
+}
+
+/* Full-page background wrapper */
+#pageWrapper {
+  background-image: url("assets/Background01.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
 }
 
 /* Hero Section */
@@ -52,21 +66,18 @@ body {
   transform: scale(1.05);
 }
 
-/* Zombie Image */
+/* Zombie Image - always visible and centered */
 #zombieImage {
-  display: none;
-  margin-top: 30px;
+  display: block;
+  margin: 30px auto 0 auto;
   max-width: 100%;
 }
 
-/* Music Section */
+/* Music Section - no background image */
 #music {
   padding: 80px 20px;
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: overlay;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   text-align: center;
 }
 
@@ -148,4 +159,22 @@ body {
   font-size: 16px;
   color: #9acd32;
   letter-spacing: 0.08em;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 48px;
+  }
+
+  #music h2,
+  #assets h2 {
+    font-size: 28px;
+  }
+
+  .zombie-button,
+  .audio-controls button {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
 }
