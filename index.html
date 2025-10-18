@@ -11,13 +11,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="pageWrapper">
 
+  <!-- Hero + Music Wrapper -->
+  <div id="heroMusicWrapper">
     <!-- Hero Section -->
     <section id="hero" class="container text-center py-5">
       <h1 class="display-1"><strong>🧟‍♂️ TextZ Ombie 🧟‍♂️</strong></h1>
       <p class="lead mt-3">Frontend Challenge: Halloween Edition 🦇<br>Project Expansion 🧛</p>
-      <button class="btn btn-primary mt-4" onclick="summonZombies()">Summon the Horde</button>
+      <button class="btn btn-primary mt-4 zombie-button" onclick="summonZombies()">Summon the Horde</button>
 
       <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde" class="img-fluid">
     </section>
@@ -28,7 +29,7 @@
 
       <div id="audioBox">
         <audio id="zombieAudio">
-          <source src="assets/PlagueOfZombiesV1.mp3" type="audio/mpeg">
+          <source src="Audio/Plague of Zombies V1.mp3" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
 
@@ -39,40 +40,50 @@
         </div>
       </div>
     </section>
-
-    <!-- Asset Gallery -->
-    <section id="assets" class="container-fluid py-5">
-      <h2 class="display-4 text-center mb-5"><strong>Asset Examples</strong></h2>
-      <div class="row justify-content-center">
-        <div class="col-md-3 mb-4">
-          <img src="assets/Asset01.png" alt="Asset 1" class="img-fluid">
-        </div>
-        <div class="col-md-3 mb-4">
-          <img src="assets/Asset02.png" alt="Asset 2" class="img-fluid">
-        </div>
-        <div class="col-md-3 mb-4">
-          <img src="assets/Asset03.png" alt="Asset 3" class="img-fluid">
-        </div>
-        <div class="col-md-3 mb-4">
-          <img src="assets/Asset04.png" alt="Asset 4" class="img-fluid">
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer" class="bg-dark text-light py-4">
-      <div class="container text-center">
-        <p class="mb-2">2025 ASXGTR - Project Alpha 1.0 - TextZ Ombie</p>
-        <ul class="list-inline">
-          <li class="list-inline-item">Summon</li>
-          <li class="list-inline-item">Grave Digging</li>
-          <li class="list-inline-item">The Crypt</li>
-          <li class="list-inline-item">Portal</li>
-        </ul>
-      </div>
-    </footer>
-
   </div>
+
+  <!-- Asset Gallery -->
+  <section id="assets" class="container-fluid py-5">
+    <h2 class="display-4 text-center mb-5"><strong>Asset Examples</strong></h2>
+    <div class="row justify-content-center">
+      <div class="col-md-3 mb-4">
+        <img src="assets/Asset01.png" alt="Asset 1" class="img-fluid">
+      </div>
+      <div class="col-md-3 mb-4">
+        <img src="assets/Asset02.png" alt="Asset 2" class="img-fluid">
+      </div>
+      <div class="col-md-3 mb-4">
+        <img src="assets/Asset03.png" alt="Asset 3" class="img-fluid">
+      </div>
+      <div class="col-md-3 mb-4">
+        <img src="assets/Asset04.png" alt="Asset 4" class="img-fluid">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="bg-dark text-light py-4">
+    <div class="container text-center">
+      <p class="mb-2">2025 ASXGTR - Project Alpha 1.0 - TextZ Ombie</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="https://discord.gg/jYccCCf68A" target="_blank" class="footer-link">🧠 Summon</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://dev.to/asx" target="_blank" class="footer-link">☠️ Grave Digging</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="https://github.com/ASXGTR" target="_blank" class="footer-link">🧙‍♂️🧹 The Crypt</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#" onclick="showComingSoon()" class="footer-link">🧟‍♀️🧟 Portal</a>
+        </li>
+      </ul>
+      <div id="comingSoonPanel" style="display:none; margin-top:15px;">
+        <p class="text-warning">🧟 Coming Soon: Steam Shrine Awakening 🧟</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -127,6 +138,11 @@
 
         hordeContainer.appendChild(zombie);
       }
+    }
+
+    function showComingSoon() {
+      const panel = document.getElementById("comingSoonPanel");
+      panel.style.display = panel.style.display === "none" ? "block" : "none";
     }
   </script>
 </body>

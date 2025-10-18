@@ -14,16 +14,12 @@ html, body {
   letter-spacing: 0.08em;
 }
 
-/* Full-page background wrapper */
-#pageWrapper {
-  background-image: url("assets/Background01.png");
+/* Hero + Music unified background */
+#heroMusicWrapper {
+  background-image: url("assets/Background05.png");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  min-height: 100vh;
-  width: 100%;
-  color: #fff;
-  text-shadow: 0 0 10px #000;
 }
 
 /* Hero Section */
@@ -73,7 +69,7 @@ html, body {
   max-width: 100%;
 }
 
-/* Music Section - no background image */
+/* Music Section */
 #music {
   padding: 80px 20px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -157,8 +153,21 @@ html, body {
   display: inline-block;
   margin: 0 10px;
   font-size: 16px;
-  color: #9acd32;
   letter-spacing: 0.08em;
+}
+
+/* Footer Links */
+.footer-link {
+  color: #9acd32;
+  font-family: 'Griffy', cursive;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #ff6347;
+  transform: scale(1.1);
 }
 
 /* Responsive tweaks */
@@ -176,5 +185,9 @@ html, body {
   .audio-controls button {
     font-size: 16px;
     padding: 8px 14px;
+  }
+
+  .footer-link {
+    font-size: 16px;
   }
 }
