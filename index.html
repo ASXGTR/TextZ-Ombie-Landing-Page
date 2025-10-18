@@ -18,7 +18,7 @@
     <section id="hero" class="container text-center py-5">
       <h1 class="display-1"><strong>🧟‍♂️ TextZ Ombie 🧟‍♂️</strong></h1>
       <p class="lead mt-3 zombie-text">Frontend Challenge: Halloween Edition 🦇<br>Project Expansion 🧛</p>
-      <button class="btn btn-primary mt-4 zombie-button">Summon the Horde</button>
+      <button class="btn btn-primary mt-4 zombie-button" onclick="summonZombies()">Summon the Horde</button>
 
       <div class="zombie-frame">
         <div class="emoji-border-top">🧛‍♂️🧟💀🎃🍬🕷️🧠</div>
@@ -110,22 +110,80 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Audio Setup
+    const audioElement = document.getElementById("zombieAudio");
+    const canvasLeft = document.getElementById("waveLeft");
+    const canvasRight = document.getElementById("waveRight");
+    const ctxLeft = canvasLeft.getContext("2d");
+    const ctxRight = canvasRight.getContext("2d");
+
+    let audioCtx;
+    let audioSource;
+    let analyser;
+    let animationId;
+
+    function initAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        audioSource = audioCtx.createMediaElementSource(audioElement);
+        analyser = audioCtx.createAnalyser();
+        audioSource.connect(analyser);
+        analyser.connect(audioCtx.destination);
+        analyser.fftSize = 64;
+      }
+    }
+
+    function drawWaveform() {
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+
+      function animate() {
+        animationId = requestAnimationFrame(animate);
+        analyser.getByteFrequencyData(dataArray);
+
+        ctxLeft.clearRect(0, 0, canvasLeft.width, canvasLeft.height);
+        ctxRight.clearRect(0, 0, canvasRight.width, canvasRight.height);
+
+        for (let i = 0; i < bufferLength; i++) {
+          const barHeight = dataArray[i] / 2;
+          const x = i * 4;
+
+          ctxLeft.fillStyle = "#9acd32";
+          ctxLeft.fillRect(x, canvasLeft.height - barHeight, 3, barHeight);
+
+          ctxRight.fillStyle = "#9acd32";
+          ctxRight.fillRect(x, canvasRight.height - barHeight, 3, barHeight);
+        }
+      }
+
+      animate();
+    }
+
     function playAudio() {
+      initAudioContext();
       audioCtx.resume();
-      document.getElementById("zombieAudio").play();
+      audioElement.play();
+      canvasLeft.style.display = "block";
+      canvasRight.style.display = "block";
       drawWaveform();
     }
 
     function pauseAudio() {
-      document.getElementById("zombieAudio").pause();
+      audioElement.pause();
+      canvasLeft.style.display = "none";
+      canvasRight.style.display = "none";
+      cancelAnimationFrame(animationId);
     }
 
     function stopAudio() {
-      const audio = document.getElementById("zombieAudio");
-      audio.pause();
-      audio.currentTime = 0;
+      audioElement.pause();
+      audioElement.currentTime = 0;
+      canvasLeft.style.display = "none";
+      canvasRight.style.display = "none";
+      cancelAnimationFrame(animationId);
     }
 
+    // Emoji Swarm Ritual
     function summonZombies() {
       const hordeContainer = document.createElement("div");
       hordeContainer.style.position = "absolute";
@@ -140,7 +198,7 @@
       const musicTop = musicSection.getBoundingClientRect().top + window.scrollY;
 
       for (let i = 0; i < 200; i++) {
-        const zombie = document.createElement("div");
+                const zombie = document.createElement("div");
         zombie.textContent = "🧟";
         zombie.style.position = "absolute";
         zombie.style.left = `${Math.random() * window.innerWidth}px`;
@@ -169,7 +227,7 @@
       panel.style.display = panel.style.display === "none" ? "block" : "none";
     }
 
-    // Zombie Chase Loop (🏃 leads the horde)
+    // Zombie Chase Ritual
     let zombieCount = 1;
     function updateChase() {
       const container = document.getElementById("chaseContainer");
@@ -194,6 +252,12 @@
     let spiderCount = 7;
 
     function loopSwarm() {
-  spawnSwarm("batSwarm", "🦇", batCount);
-  spawnSwarm("spiderSwarm", "🕷️", spiderCount);
-}
+      spawnSwarm("batSwarm", "🦇", batCount);
+      spawnSwarm("spiderSwarm", "🕷️", spiderCount);
+    }
+
+    setInterval(loopSwarm, 12000);
+    loopSwarm();
+  </script>
+</body>
+</html>
