@@ -21,7 +21,6 @@
       </nav>
     </header>
 
-    <!-- 🧠 Discord Invite Button -->
     <div id="discordInvite">
       <a href="https://discord.gg/jYccCCf68A" target="_blank" class="discord-button">🧠 Join the Ritual</a>
     </div>
@@ -55,10 +54,8 @@
         </div>
       </section>
 
-      <!-- 🧟‍♂️ Zombie Horde Animation -->
       <div id="zombieHorde"></div>
 
-      <!-- 🧟 Zombie Image Reveal -->
       <div id="zombieWrapper">
         <img id="zombieImage" src="assets/ZombieHorde01.png" alt="Zombie Horde">
         <div class="steam-overlay"></div>
@@ -125,13 +122,11 @@
     }
 
     function playAudio() {
-      const audio = document.getElementById("zombieAudio");
-      audio.play();
+      document.getElementById("zombieAudio").play();
     }
 
     function pauseAudio() {
-      const audio = document.getElementById("zombieAudio");
-      audio.pause();
+      document.getElementById("zombieAudio").pause();
     }
 
     function stopAudio() {
