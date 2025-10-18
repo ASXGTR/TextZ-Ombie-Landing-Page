@@ -37,10 +37,16 @@
           Your browser does not support the audio element.
         </audio>
 
-        <div class="audio-controls mt-3 d-flex justify-content-center gap-3">
-          <button onclick="playAudio()" class="btn btn-outline-light">▶️ Play</button>
-          <button onclick="pauseAudio()" class="btn btn-outline-light">⏸️ Pause</button>
-          <button onclick="stopAudio()" class="btn btn-outline-light">⏹️ Stop</button>
+        <div class="audio-visualizer-wrapper">
+          <canvas id="waveLeft" class="wave-canvas"></canvas>
+
+          <div class="audio-controls d-flex justify-content-center gap-3">
+            <button onclick="playAudio()" class="btn btn-outline-light">▶️ Play</button>
+            <button onclick="pauseAudio()" class="btn btn-outline-light">⏸️ Pause</button>
+            <button onclick="stopAudio()" class="btn btn-outline-light">⏹️ Stop</button>
+          </div>
+
+          <canvas id="waveRight" class="wave-canvas"></canvas>
         </div>
       </div>
     </section>
@@ -105,7 +111,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     function playAudio() {
+      audioCtx.resume();
       document.getElementById("zombieAudio").play();
+      drawWaveform();
     }
 
     function pauseAudio() {
@@ -161,12 +169,12 @@
       panel.style.display = panel.style.display === "none" ? "block" : "none";
     }
 
-    // Zombie Chase Loop
+    // Zombie Chase Loop (🏃 leads the horde)
     let zombieCount = 1;
     function updateChase() {
       const container = document.getElementById("chaseContainer");
       const zombies = "🧟".repeat(zombieCount);
-      container.innerHTML = `${zombies} 🏃`;
+      container.innerHTML = `🏃 ${zombies}`;
       zombieCount++;
       if (zombieCount > 7) zombieCount = 1;
     }
@@ -186,12 +194,6 @@
     let spiderCount = 7;
 
     function loopSwarm() {
-      spawnSwarm("batSwarm", "🦇", batCount);
-      spawnSwarm("spiderSwarm", "🕷️", spiderCount);
-    }
-
-    setInterval(loopSwarm, 12000);
-    loopSwarm();
-  </script>
-</body>
-</html>
+  spawnSwarm("batSwarm", "🦇", batCount);
+  spawnSwarm("spiderSwarm", "🕷️", spiderCount);
+}
