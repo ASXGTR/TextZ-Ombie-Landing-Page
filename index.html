@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .zombie-button {
+      font-family: 'Griffy', cursive !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -54,27 +59,15 @@
 
   <!-- Asset Gallery -->
   <section id="assets" class="container-fluid py-5">
-    <!-- Bat Swarm Above Heading -->
     <div id="batSwarm" class="swarm-zone"></div>
-
     <h2 class="display-4 text-center mb-5"><strong>Asset Examples</strong></h2>
-
-    <!-- Spider Swarm Below Heading -->
     <div id="spiderSwarm" class="swarm-zone"></div>
 
     <div class="row justify-content-center">
-      <div class="col-md-3 mb-4">
-        <img src="assets/Asset01.png" alt="Asset 1" class="img-fluid">
-      </div>
-      <div class="col-md-3 mb-4">
-        <img src="assets/Asset02.png" alt="Asset 2" class="img-fluid">
-      </div>
-      <div class="col-md-3 mb-4">
-        <img src="assets/Asset03.png" alt="Asset 3" class="img-fluid">
-      </div>
-      <div class="col-md-3 mb-4">
-        <img src="assets/Asset04.png" alt="Asset 4" class="img-fluid">
-      </div>
+      <div class="col-md-3 mb-4"><img src="assets/Asset01.png" alt="Asset 1" class="img-fluid"></div>
+      <div class="col-md-3 mb-4"><img src="assets/Asset02.png" alt="Asset 2" class="img-fluid"></div>
+      <div class="col-md-3 mb-4"><img src="assets/Asset03.png" alt="Asset 3" class="img-fluid"></div>
+      <div class="col-md-3 mb-4"><img src="assets/Asset04.png" alt="Asset 4" class="img-fluid"></div>
     </div>
   </section>
 
@@ -88,18 +81,10 @@
     <div class="container text-center">
       <p class="mb-2">2025 ASXGTR - Project Alpha 1.0 - TextZ Ombie</p>
       <ul class="list-inline">
-        <li class="list-inline-item">
-          <a href="https://discord.gg/jYccCCf68A" target="_blank" class="footer-link">🧠 Summon</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="https://dev.to/asx" target="_blank" class="footer-link">☠️ Grave Digging</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="https://github.com/ASXGTR" target="_blank" class="footer-link">🧙‍♂️🧹 The Crypt</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#" onclick="showComingSoon()" class="footer-link">🧟‍♀️🧟 Portal</a>
-        </li>
+        <li class="list-inline-item"><a href="https://discord.gg/jYccCCf68A" target="_blank" class="footer-link">🧠 Summon</a></li>
+        <li class="list-inline-item"><a href="https://dev.to/asx" target="_blank" class="footer-link">☠️ Grave Digging</a></li>
+        <li class="list-inline-item"><a href="https://github.com/ASXGTR" target="_blank" class="footer-link">🧙‍♂️🧹 The Crypt</a></li>
+        <li class="list-inline-item"><a href="#" onclick="showComingSoon()" class="footer-link">🧟‍♀️🧟 Portal</a></li>
       </ul>
       <div id="comingSoonPanel" style="display:none; margin-top:15px;">
         <p class="text-warning">🧟 Coming Soon: Steam Shrine Awakening 🧟</p>
@@ -110,17 +95,13 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Audio Setup
     const audioElement = document.getElementById("zombieAudio");
     const canvasLeft = document.getElementById("waveLeft");
     const canvasRight = document.getElementById("waveRight");
     const ctxLeft = canvasLeft.getContext("2d");
     const ctxRight = canvasRight.getContext("2d");
 
-    let audioCtx;
-    let audioSource;
-    let analyser;
-    let animationId;
+    let audioCtx, audioSource, analyser, animationId;
 
     function initAudioContext() {
       if (!audioCtx) {
@@ -144,22 +125,24 @@
         ctxLeft.clearRect(0, 0, canvasLeft.width, canvasLeft.height);
         ctxRight.clearRect(0, 0, canvasRight.width, canvasRight.height);
 
-       for (let i = 0; i < bufferLength; i++) {
-  const barHeight = dataArray[i] / 2;
-  const x = i * 4;
+        for (let i = 0; i < bufferLength; i++) {
+          const barHeight = dataArray[i] / 2;
+          const x = i * 4;
+          ctxLeft.fillStyle = "#9acd32";
+          ctxLeft.fillRect(x, canvasLeft.height - barHeight, 3, barHeight);
+        }
 
-  // Left waveform (normal)
-  ctxLeft.fillStyle = "#9acd32";
-  ctxLeft.fillRect(x, canvasLeft.height - barHeight, 3, barHeight);
-
-  // Right waveform (mirrored)
-  ctxRight.save();
-  ctxRight.translate(canvasRight.width, 0);
-  ctxRight.scale(-1, 1);
-  ctxRight.fillStyle = "#9acd32";
-  ctxRight.fillRect(x, canvasRight.height - barHeight, 3, barHeight);
-  ctxRight.restore();
-}
+        ctxRight.save();
+        ctxRight.translate(canvasRight.width, 0);
+        ctxRight.scale(-1, 1);
+        for (let i = 0; i < bufferLength; i++) {
+          const barHeight = dataArray[i] / 2;
+          const x = i * 4;
+          ctxRight.fillStyle = "#9acd32";
+          ctxRight.fillRect(x, canvasRight.height - barHeight, 3, barHeight);
+        }
+        ctxRight.restore();
+      }
 
       animate();
     }
@@ -188,13 +171,12 @@
       cancelAnimationFrame(animationId);
     }
 
-    // Emoji Swarm Ritual
     function summonZombies() {
       const hordeContainer = document.createElement("div");
       hordeContainer.style.position = "absolute";
       hordeContainer.style.top = "0";
       hordeContainer.style.left = "0";
-      hordeContainer.style.width = "100%";
+            hordeContainer.style.width = "100%";
       hordeContainer.style.height = "100%";
       hordeContainer.style.pointerEvents = "none";
       document.body.appendChild(hordeContainer);
@@ -203,7 +185,7 @@
       const musicTop = musicSection.getBoundingClientRect().top + window.scrollY;
 
       for (let i = 0; i < 200; i++) {
-                const zombie = document.createElement("div");
+        const zombie = document.createElement("div");
         zombie.textContent = "🧟";
         zombie.style.position = "absolute";
         zombie.style.left = `${Math.random() * window.innerWidth}px`;
@@ -266,3 +248,5 @@
   </script>
 </body>
 </html>
+
+     

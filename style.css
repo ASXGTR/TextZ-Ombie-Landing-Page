@@ -53,7 +53,7 @@ html, body {
   background-color: #222;
   color: #9acd32;
   border: 2px solid #9acd32;
-  font-family: 'Griffy', cursive;
+  font-family: 'Griffy', cursive !important;
   cursor: pointer;
   transition: transform 0.2s ease;
   letter-spacing: 0.08em;
@@ -120,7 +120,7 @@ html, body {
   height: 60px;
   border: 2px solid #000;
   background-color: #111;
-  display: none; /* Hidden until audio plays */
+  display: none;
 }
 
 /* Audio Controls */
