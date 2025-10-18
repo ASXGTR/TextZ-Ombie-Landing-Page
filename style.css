@@ -22,6 +22,7 @@ main {
   width: 100%;
   padding-top: 160px;
   padding-bottom: 160px;
+  position: relative;
 }
 
 /* Header */
@@ -123,10 +124,10 @@ footer {
 /* Hero Background */
 .hero-bg {
   position: absolute;
-  top: 160px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 160px - 160px);
+  height: 100%;
   background-image: url("assets/Logo006Expanded.png");
   background-size: cover;
   background-position: center top;
@@ -229,6 +230,7 @@ footer {
   justify-content: center;
   align-items: center;
   z-index: 5;
+  pointer-events: none;
 }
 
 #zombieImage {
