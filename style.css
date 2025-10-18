@@ -26,8 +26,8 @@ html, body {
 #hero {
   padding: 100px 20px;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  background-blend-mode: overlay;
+  background-color: transparent;
+  background-blend-mode: normal;
 }
 
 #hero h1 {
@@ -72,8 +72,8 @@ html, body {
 /* Music Section */
 #music {
   padding: 80px 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  background-blend-mode: overlay;
+  background-color: transparent;
+  background-blend-mode: normal;
   text-align: center;
 }
 
