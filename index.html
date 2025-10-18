@@ -144,17 +144,22 @@
         ctxLeft.clearRect(0, 0, canvasLeft.width, canvasLeft.height);
         ctxRight.clearRect(0, 0, canvasRight.width, canvasRight.height);
 
-        for (let i = 0; i < bufferLength; i++) {
-          const barHeight = dataArray[i] / 2;
-          const x = i * 4;
+       for (let i = 0; i < bufferLength; i++) {
+  const barHeight = dataArray[i] / 2;
+  const x = i * 4;
 
-          ctxLeft.fillStyle = "#9acd32";
-          ctxLeft.fillRect(x, canvasLeft.height - barHeight, 3, barHeight);
+  // Left waveform (normal)
+  ctxLeft.fillStyle = "#9acd32";
+  ctxLeft.fillRect(x, canvasLeft.height - barHeight, 3, barHeight);
 
-          ctxRight.fillStyle = "#9acd32";
-          ctxRight.fillRect(x, canvasRight.height - barHeight, 3, barHeight);
-        }
-      }
+  // Right waveform (mirrored)
+  ctxRight.save();
+  ctxRight.translate(canvasRight.width, 0);
+  ctxRight.scale(-1, 1);
+  ctxRight.fillStyle = "#9acd32";
+  ctxRight.fillRect(x, canvasRight.height - barHeight, 3, barHeight);
+  ctxRight.restore();
+}
 
       animate();
     }
